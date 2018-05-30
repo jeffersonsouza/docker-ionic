@@ -1,13 +1,11 @@
-FROM node:alpine
+FROM node:6-alpine
 MAINTAINER Jefferson Souza<hsinfo@gmail.com>
 
-RUN apk add -U python2 --no-cache
-RUN npm install -g node-sass cordova ionic@latest
+RUN apk add -U python --no-cache
+RUN npm install -g yarn node-sass cordova ionic@latest
 RUN echo 'y' | cordova -v
 
-RUN mkdir /ionic && \
-    cd /ionic && \
-    ionic start myapp sidemenu --no-interactive
+RUN mkdir /ionic
 
 # Default port
 EXPOSE 8100

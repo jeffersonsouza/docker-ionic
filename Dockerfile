@@ -1,7 +1,8 @@
 FROM node:alpine
 MAINTAINER Jefferson Souza<hsinfo@gmail.com>
 
-RUN npm install -g python2 node-sass cordova ionic@latest
+RUN apk add -U python2 --no-cache
+RUN npm install -g node-sass cordova ionic@latest
 RUN echo 'y' | cordova -v
 
 RUN mkdir /ionic && \
